@@ -13,11 +13,11 @@ impl TestTrait for () {
 }
 
 pub struct Test<'a> {
-    inner: Vec<&'a dyn TestTrait>,
+    inner: Vec<&'a dyn TestTrait<Error = ()>>,
 }
 
 impl<'a> Test<'a> {
-    pub fn add(&mut self, v: &impl TestTrait) {
+    pub fn add(&mut self, v: &'a impl TestTrait<Error = ()>) {
         self.inner.push(v);
     }
 }

@@ -5,9 +5,9 @@ pub struct IterTest {
 impl IterTest {
     fn find_and_update(&mut self) {
         // TODO: modify to pass compile.
-        for v in self.inner {
+        for mut v in &self.inner {
             if v == "" {
-                v = "test"
+                v = &"test".to_string()
             }
         }
     }
